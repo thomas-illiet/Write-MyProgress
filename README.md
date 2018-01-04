@@ -15,6 +15,11 @@ The Write-Progress cmdlet displays a progress bar in a Windows PowerShell comman
   - **Last Update**: 2017-07-26
   - **Version**	   : 1.0.0
 
+## INSTALL
+```
+Install-Script -Name Write-MyProgress
+``` 
+
 ## EXAMPLE
 ```  
 $GetProcess = Get-Process

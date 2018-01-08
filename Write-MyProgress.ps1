@@ -1,56 +1,61 @@
 <#PSScriptInfo
-	.VERSION 1.0.0
-	.GUID caf7fc16-8f02-4247-a4b4-d026b98d6c16
-	.AUTHOR thomas.illiet
-	.COMPANYNAME netboot.fr
-	.COPYRIGHT (c) 2017 Netboot. All rights reserved.
-	.TAGS Tools
-	.LICENSEURI https://raw.githubusercontent.com/Netboot-France/Write-MyProgress/master/LICENSE
-	.PROJECTURI https://github.com/Netboot-France/Write-MyProgress
+    .VERSION 1.0.1
+    .GUID caf7fc16-8f02-4247-a4b4-d026b98d6c16
+    .AUTHOR thomas.illiet
+    .COMPANYNAME netboot.fr
+    .COPYRIGHT (c) 2017 Netboot. All rights reserved.
+    .TAGS Tools
+    .LICENSEURI https://raw.githubusercontent.com/Netboot-France/Write-MyProgress/master/LICENSE
+    .PROJECTURI https://github.com/Netboot-France/Write-MyProgress
+    .ICONURI https://raw.githubusercontent.com/Netboot-France/Write-MyProgress/master/Resource/Icon.png
+    .EXTERNALMODULEDEPENDENCIES
+    .REQUIREDSCRIPTS 
+    .EXTERNALSCRIPTDEPENDENCIES 
+    .RELEASENOTES
 #> 
 
 <#  
-      .SYNOPSIS  
-      Displays a progress bar within a Windows PowerShell command window.
+    .SYNOPSIS  
+        Displays a progress bar within a Windows PowerShell command window.
 
-      .DESCRIPTION
-      The Write-Progress cmdlet displays a progress bar in a Windows PowerShell command window that depicts the status of a running command or script.
+    .DESCRIPTION
+        The Write-Progress cmdlet displays a progress bar in a Windows PowerShell command window that depicts the status of a running command or script.
       
-      .NOTES  
-            File Name  : Write-MyProgress.ps1
-            Author     : Thomas ILLIET, contact@thomas-illiet.fr
-            Date       : 2017-05-10
-            Last Update: 2017-07-26
-            Version    : 1.0.0
+    .NOTES  
+        File Name   : Write-MyProgress.ps1
+        Author      : Thomas ILLIET, contact@thomas-illiet.fr
+        Date        : 2017-05-10
+        Last Update : 2018-01-08
+        Version     : 1.0.1
             
-      .PARAMETER id
-            Specifies an ID that distinguishes each progress bar from the others.
+    .PARAMETER id
+        Specifies an ID that distinguishes each progress bar from the others.
       
-      .PARAMETER ParentId
-      Specifies the parent activity of the current activity.
+    .PARAMETER ParentId
+        Specifies the parent activity of the current activity.
       
-      .PARAMETER StartTime
-      StartTime of the foreach processing
+    .PARAMETER StartTime
+        StartTime of the foreach processing
       
-      .PARAMETER Object
-      Object use in your foreach processing
+    .PARAMETER Object
+        Object use in your foreach processing
       
-      .PARAMETER Count
-      Foreach Count status
+    .PARAMETER Count
+        Foreach Count status
 
-      .EXAMPLE  
-            $GetProcess = Get-Process
+    .EXAMPLE  
+        $GetProcess = Get-Process
 
-      $Count = 0
-      $StartTime = Get-Date
-      foreach($Process in $GetProcess)
-      {
+        $Count = 0
+        $StartTime = Get-Date
+        foreach($Process in $GetProcess)
+        {
             $Count++
             Write-MyProgress -StartTime $StartTime -Object $GetProcess -Count $Count
 
             write-host "-> $($Process.ProcessName)"
             Start-Sleep -Seconds 1
-      }
+        }
 #>
 Param(
       [parameter(Mandatory=$true)]
